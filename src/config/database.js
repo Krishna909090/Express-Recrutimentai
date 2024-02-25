@@ -12,7 +12,7 @@ const { InternalServerError } = require('http-errors');
 // Connect to MongoDB
 async function connectToMongoDB() {
     try {
-        await mongoose.connect('mongodb+srv://rajasrik18:u0xWE9Z0SKqHRCCi@test-pro-db.xew6egm.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect('');
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
         throw new InternalServerError(constants.DB_CONNECTION_ERROR);
