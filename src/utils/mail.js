@@ -15,7 +15,6 @@ const nodemailer =  require('nodemailer');
                 <p>Best regards,<br>Your App Team</p>
             </body>`;
         const subject = 'Forgot Password';
-        console.log(html)
         const e = await sendEmail({ email, otp, name, html, subject });
         return e;
     }

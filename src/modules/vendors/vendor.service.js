@@ -10,12 +10,10 @@ const jwtService = require("../../utils/auth")
 async function create(data){
     try{
       data.password = hash.hashingPassword(data.password)
-      console.log(data.password, "dasdsabdh")
       const vendor = await Vendor.create(data);
       return vendor
     }
     catch (error) {
-        console.error('Error while creating user:', error);
         throw new InternalServerError();
     }
 }
@@ -37,7 +35,6 @@ async function findOne(data) {
   async function authenticate(data) {
     try {
       const user = await findOne(data.name);
-      console.log(user)
       if (!user) {
         return { message: constants.INVALID_LOGIN };
       }
@@ -61,7 +58,6 @@ async function findOne(data) {
       if (!user) {
         return {message : constants.constants.NOT_FOUND}
       }
-      console.log(user, "asdabsajkd")
       const otp = Math.floor(Math.random() * 899999 + 100000);
       await mailSchema.create({ email: user.email, otp: otp });
       return await mail.notifyForgotPassword({

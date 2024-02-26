@@ -16,7 +16,6 @@ const { encodeMessage, decodeMessage } = require('./encrypt');
 
 /* Exporting the function jwtTokenGenerate to generate jwt token. */
 exports.jwtGenerateToken = (data = {}) => {
-    console.log(data, "ASdadj")
     return jwt.sign(
         { data: encodeMessage(JSON.stringify(data)) },
         process.env.SECRET,

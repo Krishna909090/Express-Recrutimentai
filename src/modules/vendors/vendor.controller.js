@@ -15,7 +15,6 @@ exports.createVendor = async (req, res) => {
             message : constants.constants.USER_EXIST
           });
         }
-        console.log(req.body.password)
         const validation = await validationSchema.vendorRegister(req.body)
         if (validation) {
           return res
@@ -27,7 +26,6 @@ exports.createVendor = async (req, res) => {
           res.status(constants.statuscodes.CREATED).json({status :constants.statuscodes.CREATED, userdata:userdata})
         }
     } catch (error) {
-      console.error(error);
       res.status(500).send({ message: constants.messages.INTERNAL_SERVER_ERROR, status: constants.statuscodes.INTERNAL_SERVER_ERROR });
     }
   };
